@@ -1,6 +1,6 @@
 # Password to Seed Converter 🌱🔑
 
-This is a simple Python script that allows users to convert passwords to mnemonic seed phrases and vice versa and reatore password with seed 
+This is a simple Python script that allows users to convert passwords to mnemonic seed phrases and vice versa and restore passwords with seed 
 
 ## 🛠️ Requirements
  
