@@ -3,7 +3,7 @@
 This is a simple Python script that allows users to convert passwords to mnemonic seed phrases and vice versa and restore passwords with seed 
 
 ## 🛠️ Requirements
- 
+
 - Python 3.x 🐍
 - pycryptodome (for cryptographic operations) 🔒
 - mnemonic (for generating mnemonic phrases) 📝
