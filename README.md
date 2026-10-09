@@ -1,113 +1,69 @@
-PasswordToSeed
+🔐 PasswordToSeed 🗝️
 
-Convert a password into a recoverable mnemonic phrase — and restore the original password when needed.
+🚀 Turn Your Password Into Words — Recover It Anytime!
 
-PasswordToSeed is a Python project designed to encode a password into a human-readable sequence of words using authenticated encryption and a custom mnemonic format. With the correct recovery secret, the original password can be recovered.
+🔒 PasswordToSeed is a Python project designed to transform passwords into human-readable mnemonic phrases using authenticated encryption and a custom word-encoding format.
 
-> **Important:** This project uses a custom mnemonic format, not standard BIP-39. Review and test the implementation before relying on it for sensitive credentials or production use.
+✨ Features
 
-Features
+* 🔐 Authenticated Encryption — ChaCha20-Poly1305
+* 🛡️ Secure Key Derivation — scrypt
+* 🎲 Random Salt & Nonce — Cryptographically secure random values
+* 🗝️ Password Recovery — Recover the original password using your mnemonic phrase and recovery secret
+* 🧩 Mnemonic Encoding — Represent encrypted data as a sequence of words
+* 💻 Offline Operation — Designed to run locally
+* 🧪 Testing Support — Validate recovery, corrupted phrases, and authentication failures
 
-• Password recovery: Recover the original password from the generated phrase.
-• Authenticated encryption: Uses ChaCha20-Poly1305 to protect the encrypted payload and detect tampering.
-• Password-based key derivation: Uses scrypt to derive an encryption key from a recovery secret.
-• Random salt and nonce: Designed to prevent repeated inputs from producing identical encrypted payloads.
-• Mnemonic representation: Converts binary data into a sequence of readable words.
-• Input validation: Rejects malformed phrases and invalid encrypted data.
-• Local operation: Designed to work offline without sending passwords to an external service.
+[!WARNING]
+⚠️ PasswordToSeed uses a custom mnemonic format, not BIP-39. Review the implementation and run security tests before protecting real passwords or sensitive credentials.
 
-How It Works
+⸻
 
-The intended workflow is:
+⚙️ Installation
 
-1. Enter the password you want to encode.
-2. Provide a separate recovery secret.
-3. Generate a random salt and nonce.
-4. Derive an encryption key using scrypt.
-5. Encrypt the password using ChaCha20-Poly1305.
-6. Encode the resulting payload as a mnemonic phrase.
-7. To recover the password, decode the phrase, derive the same key, authenticate and decrypt the payload.
-
-The recovery secret is required to restore the original password. The mnemonic phrase alone should not be sufficient to decrypt the password.
-
-Requirements
-
-• Python 3.10 or newer
-• PyCryptodome
-• Pytest for running the test suite
-
-Installation
-
-Clone the repository:
+📥 Clone the repository:
 
 git clone https://github.com/AiGptCode/PasswordToSeed.git
 cd PasswordToSeed
 
-Create a virtual environment:
-
-python -m venv .venv
-
-Activate it.
+🐍 Create and activate a virtual environment:
 
 Linux / macOS
 
+python3 -m venv .venv
 source .venv/bin/activate
 
 Windows
 
+python -m venv .venv
 .venv\Scripts\activate
 
-Install the dependencies:
+📦 Install dependencies:
 
 pip install pycryptodome pytest
 
-Usage
+🚀 Usage
 
-Run the program:
+Run the application:
 
 python password_to_seed.py
 
-Follow the prompts to generate a mnemonic phrase or recover a password.
+Follow the prompts to generate a mnemonic phrase or recover the original password.
 
-Keep the mnemonic phrase and recovery secret safe. Do not share either one or commit them to source control.
-
-Testing
-
-Run the project’s test suite:
+🧪 Run tests:
 
 pytest -q
 
-Tests should cover at least:
+🔐 Security
 
-• Password-to-phrase-to-password round trips.
-• Empty and unusually long inputs.
-• Incorrect recovery secrets.
-• Modified or corrupted mnemonic phrases.
-• Invalid word sequences.
-• Authentication failures.
-• Random salt and nonce generation.
+* 🛡️ Use a strong, unique recovery secret.
+* 🎲 Never reuse a ChaCha20-Poly1305 nonce with the same key.
+* 🔒 Keep your mnemonic phrase and recovery secret private.
+* 🚫 Never hard-code or publish sensitive credentials.
+* ✅ Reject modified payloads that fail authentication.
+* ⚠️ A mnemonic phrase is not a substitute for a standard BIP-39 wallet recovery phrase.
 
-Do not consider the project production-ready until these tests pass against the actual implementation.
-
-Security Considerations
-
-• Use a unique, strong recovery secret.
-• Never hard-code recovery secrets, passwords, encryption keys, salts, or nonces.
-• Generate salts and nonces using a cryptographically secure random number generator.
-• Never reuse a ChaCha20-Poly1305 nonce with the same key.
-• Use authenticated encryption and reject payloads that fail authentication.
-• Treat mnemonic phrases as sensitive encrypted data.
-• Avoid printing passwords or recovery secrets to logs.
-• Remember that encryption cannot protect a phrase if the recovery secret is compromised.
-
-Important limitations
-
-• A custom mnemonic format is not interchangeable with BIP-39 wallets or seed phrases.
-• A checksum can detect some accidental changes, but it is not a substitute for authenticated encryption.
-• Password-based encryption security depends on the recovery secret, key derivation parameters, and correct implementation.
-• Python cannot reliably guarantee that sensitive strings have been erased from memory.
-
-Project Structure
+📂 Project Structure
 
 PasswordToSeed/
 ├── README.md
@@ -115,18 +71,22 @@ PasswordToSeed/
 ├── password_to_seed.py
 └── test_password_to_seed.py
 
-The filenames above describe the intended structure; adjust them to match the actual repository.
+Update the filenames to match the actual repository.
 
-Contributing
+🤝 Contributing
 
-Contributions are welcome. Please open an issue before making substantial changes, and include tests for security-sensitive modifications.
+Contributions, bug reports, and security reviews are welcome! ❤️
 
-License
+Please include tests with code changes and never commit real passwords, recovery secrets, or private credentials.
 
-Specify the project’s actual license here. Do not claim an open-source license unless the repository includes the corresponding license file.
+📜 License
 
-────────
+Add the project’s actual license and corresponding LICENSE file here.
 
-Project: AiGptCode/PasswordToSeed
+⸻
 
-Goal: Make password encoding and recovery understandable, testable, and secure by design.
+🌟 Repository
+
+🔗 GitHub: https://github.com/AiGptCode/PasswordToSeed
+
+🔐 PasswordToSeed — Protect Your Password. Keep the Words. Recover When Needed. 🚀
